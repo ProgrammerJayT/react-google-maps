@@ -96,6 +96,11 @@ const MapWithAutocomplete = () => {
               padding: "10px",
               fontSize: "14px",
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+              }
+            }}
           />
         </Autocomplete>
       </div>
@@ -103,7 +108,7 @@ const MapWithAutocomplete = () => {
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={defaultCenter}
-        zoom={16}
+        zoom={18}
         onLoad={onLoad}
         onClick={onMapClick}
         options={defaultMapOptions}
