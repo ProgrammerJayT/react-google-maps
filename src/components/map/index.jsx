@@ -15,21 +15,21 @@ const mapContainerStyle = {
 
 const defaultMapOptions = {
   zoomControl: true,
-  gestureHandling: "auto",
   mapTypeId: "roadmap",
+  zoom: 15,
 };
 
 const defaultCenter = {
-  lat: 37.7749,
+  lat: 37.7749, 
   lng: -122.4194,
 };
 
 const MapWithAutocomplete = () => {
   const [map, setMap] = useState(null);
-  const [marker, setMarker] = useState(null);
-  const [info, setInfo] = useState(null);
-  const [autocomplete, setAutocomplete] = useState(null);
-
+  const [marker, setMarker] = useState(null); 
+  const [info, setInfo] = useState(null); 
+  const [autocomplete, setAutocomplete] = useState(null); 
+  
   const onMapClick = (e) => {
     const lat = e.latLng.lat();
     const lng = e.latLng.lng();
@@ -81,7 +81,6 @@ const MapWithAutocomplete = () => {
           padding: "10px",
           backgroundColor: "white",
           zIndex: 1,
-          width: "100%",
         }}
       >
         <Autocomplete
@@ -92,14 +91,9 @@ const MapWithAutocomplete = () => {
             type="text"
             placeholder="Search for a location"
             style={{
-              width: "100%",
+              width: "300px",
               padding: "10px",
               fontSize: "14px",
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-              }
             }}
           />
         </Autocomplete>
@@ -108,7 +102,7 @@ const MapWithAutocomplete = () => {
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={defaultCenter}
-        zoom={18}
+        zoom={20}
         onLoad={onLoad}
         onClick={onMapClick}
         options={defaultMapOptions}
